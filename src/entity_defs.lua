@@ -342,5 +342,131 @@ ENTITY_DEFS = {
                 texture = 'boss'
             }
         }
+    },
+    ['boss2'] = {
+        texture = 'boss2',
+        walkSpeed = 50,
+        animations = {
+            ['walk-left'] = {
+                frames = {5, 6, 7, 8},
+                interval = 0.2,
+                texture = 'boss2'
+            },
+            ['walk-right'] = {
+                frames = {9, 10, 11, 12},
+                interval = 0.2,
+                texture = 'boss2'
+            },
+            ['walk-down'] = {
+                frames = {1, 2, 3, 4},
+                interval = 0.2,
+                texture = 'boss2'
+            },
+            ['walk-up'] = {
+                frames = {13, 14, 15, 16},
+                interval = 0.2,
+                texture = 'boss2'
+            },
+            ['idle-left'] = {
+                frames = {5},
+                texture = 'boss2'
+            },
+            ['idle-right'] = {
+                frames = {9},
+                texture = 'boss2'
+            },
+            ['idle-down'] = {
+                frames = {1},
+                texture = 'boss2'
+            },
+            ['idle-up'] = {
+                frames = {13},
+                texture = 'boss2'
+            }
+        }
+    },
+    ['boss3'] = {
+        texture = 'boss3',
+        walkSpeed = 50,
+        animations = {
+            ['walk-left'] = {
+                frames = {5, 6, 7, 8},
+                interval = 0.2,
+                texture = 'boss3'
+            },
+            ['walk-right'] = {
+                frames = {9, 10, 11, 12},
+                interval = 0.2,
+                texture = 'boss3'
+            },
+            ['walk-down'] = {
+                frames = {1, 2, 3, 4},
+                interval = 0.2,
+                texture = 'boss3'
+            },
+            ['walk-up'] = {
+                frames = {13, 14, 15, 16},
+                interval = 0.2,
+                texture = 'boss3'
+            },
+            ['idle-left'] = {
+                frames = {5},
+                texture = 'boss3'
+            },
+            ['idle-right'] = {
+                frames = {9},
+                texture = 'boss3'
+            },
+            ['idle-down'] = {
+                frames = {1},
+                texture = 'boss3'
+            },
+            ['idle-up'] = {
+                frames = {13},
+                texture = 'boss3'
+            }
+        }
+    },
+    ['boss4'] = {
+        texture = 'boss4',
+        walkSpeed = 50,
+        animations = {
+            ['walk-left'] = {
+                frames = {5, 6, 7, 8},
+                interval = 0.2,
+                texture = 'boss4'
+            },
+            ['walk-right'] = {
+                frames = {9, 10, 11, 12},
+                interval = 0.2,
+                texture = 'boss4'
+            },
+            ['walk-down'] = {
+                frames = {1, 2, 3, 4},
+                interval = 0.2,
+                texture = 'boss4'
+            },
+            ['walk-up'] = {
+                frames = {13, 14, 15, 16},
+                interval = 0.2,
+                texture = 'boss4'
+            },
+            ['idle-left'] = {
+                frames = {5},
+                texture = 'boss4'
+            },
+            ['idle-right'] = {
+                frames = {9},
+                texture = 'boss4'
+            },
+            ['idle-down'] = {
+                frames = {1},
+                texture = 'boss4'
+            },
+            ['idle-up'] = {
+                frames = {13},
+                texture = 'boss4'
+            }
+        }
     }
 }

@@ -216,6 +216,16 @@ function Room:update(dt)
   
     for i = #self.entities, 1, -1 do
         local entity = self.entities[i]
+        -- change health bar if hit
+        if entity == self.entities[1] then
+            if entity.health == 3 then
+                entity.currentAnimation.texture = 'boss2'
+            elseif entity.health == 2 then
+                entity.currentAnimation.texture = 'boss3'
+            elseif entity.health == 1 then
+                entity.currentAnimation.texture = 'boss4'
+            end 
+        end
 
         -- remove entity from the table if health is <= 0
         if entity.health <= 0 then
@@ -248,6 +258,7 @@ function Room:update(dt)
                     self.player.key = true
                     for k, object in pairs(self.objects) do
                         if object == key then
+                            gSounds['key']:play()
                             table.remove(self.objects, k)
                         end
                     end

@@ -49,7 +49,10 @@ gTextures = {
     ['switches'] = love.graphics.newImage('graphics/switches.png'),
     ['entities'] = love.graphics.newImage('graphics/entities.png'),
     -- ##Final Project
-    ['boss'] = love.graphics.newImage('graphics/boss.png'),
+    ['boss'] = love.graphics.newImage('graphics/boss1.png'),
+    ['boss2'] = love.graphics.newImage('graphics/boss2.png'),
+    ['boss3'] = love.graphics.newImage('graphics/boss3.png'),
+    ['boss4'] = love.graphics.newImage('graphics/boss4.png'),
     ['key'] = love.graphics.newImage('graphics/keys_and_locks.png')
 }
 
@@ -65,6 +68,9 @@ gFrames = {
     ['switches'] = GenerateQuads(gTextures['switches'], 16, 18),
     -- ##Final Project
     ['boss'] = GenerateQuads(gTextures['boss'], 24, 24),
+    ['boss2'] = GenerateQuads(gTextures['boss2'], 24, 24),
+    ['boss3'] = GenerateQuads(gTextures['boss3'], 24, 24),
+    ['boss4'] = GenerateQuads(gTextures['boss4'], 24, 24),
     ['key'] = GenerateQuads(gTextures['key'], 16 , 16)
 }
 
@@ -83,5 +89,6 @@ gSounds = {
     ['sword'] = love.audio.newSource('sounds/sword.wav'),
     ['hit-enemy'] = love.audio.newSource('sounds/hit_enemy.wav'),
     ['hit-player'] = love.audio.newSource('sounds/hit_player.wav'),
-    ['door'] = love.audio.newSource('sounds/door.wav')
+    ['door'] = love.audio.newSource('sounds/door.wav'),
+    ['key'] = love.audio.newSource('sounds/key.mp3')
 }
