@@ -63,5 +63,22 @@ GAME_OBJECT_DEFS = {
                 frame = 1
             }
         }
+    },
+    ['key'] = {
+        type = 'key',
+        texture = 'key',
+        frame = 1,
+        width = 16,
+        height = 16,
+        solid = false,
+        defaultState = 'unpressed',
+        states = {
+            ['unpressed'] = {
+                frame = 1
+            },
+            ['pressed'] = {
+                frame = 1
+            }
+        }
     }
 }

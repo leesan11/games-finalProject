@@ -49,9 +49,32 @@ end
     Randomly creates an assortment of enemies for the player to fight.
 ]]
 function Room:generateEntities()
+        -- generate boss ##finalProject
+    table.insert(self.entities, Entity {
+        animations = ENTITY_DEFS['boss'].animations,
+        walkSpeed = ENTITY_DEFS['boss'].walkSpeed or 20,
+    
+        -- ensure X and Y are within bounds of the map
+        x = math.random(MAP_RENDER_OFFSET_X + TILE_SIZE,
+            VIRTUAL_WIDTH - TILE_SIZE * 2 - 16),
+        y = math.random(MAP_RENDER_OFFSET_Y + TILE_SIZE,
+            VIRTUAL_HEIGHT - (VIRTUAL_HEIGHT - MAP_HEIGHT * TILE_SIZE) + MAP_RENDER_OFFSET_Y - TILE_SIZE - 16),
+            
+        width = 16,
+        height = 16,
+        boss = true,
+        health = 4
+    })
+    self.entities[1].stateMachine = StateMachine {
+        ['walk'] = function() return EntityWalkState(self.entities[1], self.objects) end,
+        ['idle'] = function() return EntityIdleState(self.entities[1]) end
+    }
+    
+    self.entities[1]:changeState('walk')
+
     local types = {'skeleton', 'slime', 'bat', 'ghost', 'spider'}
 
-    for i = 1, 10 do
+    for i = 2, 10 do
         local type = types[math.random(#types)]
 
         table.insert(self.entities, Entity {
@@ -66,7 +89,7 @@ function Room:generateEntities()
             
             width = 16,
             height = 16,
-
+            boss=false,
             health = 1
         })
 
@@ -96,7 +119,7 @@ function Room:generateObjects()
 
     -- define a function for the switch that will open all doors in the room
     switch.onCollide = function()
-        if switch.state == 'unpressed' then
+        if switch.state == 'unpressed' and self.player.key then
             switch.state = 'pressed'
             
             -- open every door in the room if we press the switch
@@ -198,7 +221,7 @@ function Room:update(dt)
         if entity.health <= 0 then
             entity.dead = true
             --#Task 1 spawn heart at entity.x and entity.y 
-            if not entity.spawnedHeart and math.random(2) == 1 then
+            if not entity.spawnedHeart and not (entity == self.entities[1]) and math.random(2) == 1 then
                 table.insert(self.objects, GameObject(
                     GAME_OBJECT_DEFS['heart'],entity.x,entity.y))
                 local heart = self.objects[#self.objects]
@@ -216,6 +239,21 @@ function Room:update(dt)
                 entity.spawnedHeart = true
             end
             -- #
+            -- final project
+            if entity == self.entities[1] and entity.spawnedKey == false then
+                table.insert(self.objects, GameObject(
+                    GAME_OBJECT_DEFS['key'],entity.x,entity.y))
+                local key = self.objects[#self.objects]
+                key.onCollide = function()
+                    self.player.key = true
+                    for k, object in pairs(self.objects) do
+                        if object == key then
+                            table.remove(self.objects, k)
+                        end
+                    end
+                end
+                entity.spawnedKey = true
+            end
 
         elseif not entity.dead then
             entity:processAI({room = self}, dt)

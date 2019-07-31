@@ -58,9 +58,12 @@ end
 function PlayerSwingSwordState:update(dt)
     -- check if hitbox collides with any entities in the scene
     for k, entity in pairs(self.dungeon.currentRoom.entities) do
-        if entity:collides(self.swordHitbox) then
+        if entity:collides(self.swordHitbox) and self.player.swung == true then
             entity:damage(1)
+            -- boss should go invulnerable #####final project
+            entity:goInvulnerable(1.5)
             gSounds['hit-enemy']:play()
+            self.player.swung = false
         end
     end
     

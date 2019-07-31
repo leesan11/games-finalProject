@@ -58,6 +58,7 @@ function PlayerWalkState:update(dt)
     if love.keyboard.wasPressed('space') then
         -- ##Task 2 9:11AM
         if not self.entity.pot then
+            self.entity.swung = true
             self.entity:changeState('swing-sword')
         end
     end

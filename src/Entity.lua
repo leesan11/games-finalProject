@@ -41,6 +41,11 @@ function Entity:init(def)
     self.pot = false
     -- ###Task 3
     self.throwPot = false
+    -- ### Final Project swung property used to fix swingsword loop bug
+    self.swung = false
+    self.boss = false
+    self.key = false
+    self.spawnedKey = false
     
     
 end

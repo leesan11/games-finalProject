@@ -47,7 +47,10 @@ gTextures = {
     ['pot-walk'] = love.graphics.newImage('graphics/character_pot_walk.png'),
     ['hearts'] = love.graphics.newImage('graphics/hearts.png'),
     ['switches'] = love.graphics.newImage('graphics/switches.png'),
-    ['entities'] = love.graphics.newImage('graphics/entities.png')
+    ['entities'] = love.graphics.newImage('graphics/entities.png'),
+    -- ##Final Project
+    ['boss'] = love.graphics.newImage('graphics/boss.png'),
+    ['key'] = love.graphics.newImage('graphics/keys_and_locks.png')
 }
 
 gFrames = {
@@ -59,7 +62,10 @@ gFrames = {
     ['pot-walk'] = GenerateQuads(gTextures['pot-walk'],16, 32),
     ['entities'] = GenerateQuads(gTextures['entities'], 16, 16),
     ['hearts'] = GenerateQuads(gTextures['hearts'], 16, 16),
-    ['switches'] = GenerateQuads(gTextures['switches'], 16, 18)
+    ['switches'] = GenerateQuads(gTextures['switches'], 16, 18),
+    -- ##Final Project
+    ['boss'] = GenerateQuads(gTextures['boss'], 24, 24),
+    ['key'] = GenerateQuads(gTextures['key'], 16 , 16)
 }
 
 gFonts = {
