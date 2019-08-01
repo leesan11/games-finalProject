@@ -125,6 +125,7 @@ function Room:generateObjects()
             -- open every door in the room if we press the switch
             for k, doorway in pairs(self.doorways) do
                 doorway.open = true
+                self.player.key = false
             end
 
             gSounds['door']:play()
